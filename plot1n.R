@@ -1,0 +1,6 @@
+house_hold_power <- read.csv("household_power_consumption.txt",header=TRUE,sep = ';', na.strings = '?',nrows= 2075259, check.names = FALSE, stringsAsFactors = FALSE, comment.char = "", quote = '\"')
+subsetted_data <- subset(house_hold_power,Date %in% c("1/2/2007","2/2/2007"))
+subsetted_data$Date <- as.Date(subsetted_data$Date,format="%d/%m/%Y")
+hist(subsetted_data$Global_active_power,main="Global_Active_power",xlab="Global Active Power(kilowatts)",ylab= "Frequency", col ="Red")
+png("plot1.png",width=480, height=480)
+dev.off()
